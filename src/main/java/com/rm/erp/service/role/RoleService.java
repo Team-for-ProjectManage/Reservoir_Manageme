@@ -8,7 +8,6 @@ import com.rm.erp.datasource.entities.User;
 import com.rm.erp.datasource.mappers.RoleMapper;
 import com.rm.erp.datasource.mappers.RoleMapperEx;
 import com.rm.erp.exception.JshException;
-import com.rm.erp.service.log.LogService;
 import com.rm.erp.service.user.UserService;
 import com.rm.erp.utils.StringUtil;
 
@@ -32,8 +31,6 @@ public class RoleService {
 
     @Resource
     private RoleMapperEx roleMapperEx;
-    @Resource
-    private LogService logService;
     @Resource
     private UserService userService;
 
@@ -85,7 +82,10 @@ public class RoleService {
         int result=0;
         try{
             result=roleMapper.insertSelective(role);
-            logService.insertLog("角色", BusinessConstants.LOG_OPERATION_TYPE_ADD, request);
+			/*
+			 * logService.insertLog("角色", BusinessConstants.LOG_OPERATION_TYPE_ADD,
+			 * request);
+			 */
         }catch(Exception e){
             JshException.writeFail(logger, e);
         }
@@ -99,8 +99,11 @@ public class RoleService {
         int result=0;
         try{
             result=roleMapper.updateByPrimaryKeySelective(role);
-            logService.insertLog("角色",
-                    new StringBuffer(BusinessConstants.LOG_OPERATION_TYPE_EDIT).append(id).toString(), request);
+			/*
+			 * logService.insertLog("角色", new
+			 * StringBuffer(BusinessConstants.LOG_OPERATION_TYPE_EDIT).append(id).toString()
+			 * , request);
+			 */
         }catch(Exception e){
             JshException.writeFail(logger, e);
         }
@@ -112,8 +115,11 @@ public class RoleService {
         int result=0;
         try{
             result=roleMapper.deleteByPrimaryKey(id);
-            logService.insertLog("角色",
-                    new StringBuffer(BusinessConstants.LOG_OPERATION_TYPE_DELETE).append(id).toString(), request);
+			/*
+			 * logService.insertLog("角色", new
+			 * StringBuffer(BusinessConstants.LOG_OPERATION_TYPE_DELETE).append(id).toString
+			 * (), request);
+			 */
         }catch(Exception e){
             JshException.writeFail(logger, e);
         }
@@ -128,7 +134,7 @@ public class RoleService {
         int result=0;
         try{
             result=roleMapper.deleteByExample(example);
-            logService.insertLog("角色", "批量删除,id集:" + ids, request);
+			/* logService.insertLog("角色", "批量删除,id集:" + ids, request); */
         }catch(Exception e){
             JshException.writeFail(logger, e);
         }
@@ -158,9 +164,12 @@ public class RoleService {
      */
     @Transactional(value = "transactionManager", rollbackFor = Exception.class)
     public int batchDeleteRoleByIds(String ids) throws Exception{
-        logService.insertLog("序列号",
-                new StringBuffer(BusinessConstants.LOG_OPERATION_TYPE_DELETE).append(ids).toString(),
-                ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest());
+		/*
+		 * logService.insertLog("序列号", new
+		 * StringBuffer(BusinessConstants.LOG_OPERATION_TYPE_DELETE).append(ids).
+		 * toString(), ((ServletRequestAttributes)
+		 * RequestContextHolder.getRequestAttributes()).getRequest());
+		 */
         User userInfo=userService.getCurrentUser();
         String [] idArray=ids.split(",");
         int result=0;

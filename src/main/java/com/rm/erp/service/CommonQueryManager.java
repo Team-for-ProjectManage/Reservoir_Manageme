@@ -1,7 +1,6 @@
 package com.rm.erp.service;
 
 import com.rm.erp.constants.BusinessConstants;
-import com.rm.erp.service.log.LogService;
 import com.rm.erp.utils.StringUtil;
 
 import org.springframework.stereotype.Service;
@@ -21,10 +20,7 @@ public class CommonQueryManager {
 
     @Resource
     private InterfaceContainer container;
-
-    @Resource
-    private LogService logService;
-
+    
     /**
      * 查询单条
      *

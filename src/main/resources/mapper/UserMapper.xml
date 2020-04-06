@@ -85,7 +85,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from jsh_user
+    from t_rm_user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -96,15 +96,15 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from jsh_user
+    from t_rm_user
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from jsh_user
+    delete from t_rm_user
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="com.rm.erp.datasource.entities.UserExample">
-    delete from jsh_user
+    delete from t_rm_user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -122,7 +122,7 @@
       #{remark,jdbcType=VARCHAR}, #{tenantId,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="com.rm.erp.datasource.entities.User">
-    insert into jsh_user
+    insert into t_rm_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -213,13 +213,13 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.rm.erp.datasource.entities.UserExample" resultType="java.lang.Long">
-    select count(*) from jsh_user
+    select count(*) from t_rm_user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update jsh_user
+    update t_rm_user
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=BIGINT},
@@ -289,7 +289,7 @@
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.rm.erp.datasource.entities.User">
-    update jsh_user
+    update t_rm_user
     <set>
       <if test="username != null">
         username = #{username,jdbcType=VARCHAR},
@@ -334,7 +334,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.rm.erp.datasource.entities.User">
-    update jsh_user
+    update t_rm_user
     set username = #{username,jdbcType=VARCHAR},
       loginame = #{loginame,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},

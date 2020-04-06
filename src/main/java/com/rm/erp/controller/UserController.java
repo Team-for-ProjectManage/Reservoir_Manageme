@@ -11,7 +11,6 @@ import com.rm.erp.datasource.entities.User;
 import com.rm.erp.datasource.entities.UserEx;
 import com.rm.erp.datasource.vo.TreeNodeEx;
 import com.rm.erp.exception.BusinessParamCheckingException;
-import com.rm.erp.service.log.LogService;
 import com.rm.erp.service.user.UserService;
 import com.rm.erp.utils.*;
 
@@ -19,8 +18,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -43,9 +40,6 @@ public class UserController {
 
 	@Resource
 	private UserService userService;
-
-	@Resource
-	private LogService logService;
 
 	private static String message = "成功";
 	private static final String HTTP = "http://";
@@ -114,10 +108,12 @@ public class UserController {
 					 * 
 					 * }
 					 */
-					logService.insertLog("用户",
-							new StringBuffer(BusinessConstants.LOG_OPERATION_TYPE_LOGIN).append(user.getId())
-									.toString(),
-							((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest());
+					/*
+					 * logService.insertLog("用户", new
+					 * StringBuffer(BusinessConstants.LOG_OPERATION_TYPE_LOGIN).append(user.getId())
+					 * .toString(), ((ServletRequestAttributes)
+					 * RequestContextHolder.getRequestAttributes()).getRequest());
+					 */
 				} catch (Exception e) {
 					e.printStackTrace();
 					logger.error(">>>>>>>>>>>>>>>查询用户名为:" + username + " ，用户信息异常", e);
