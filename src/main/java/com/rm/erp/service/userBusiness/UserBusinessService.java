@@ -9,7 +9,6 @@ import com.rm.erp.datasource.mappers.UserBusinessMapper;
 import com.rm.erp.datasource.mappers.UserBusinessMapperEx;
 import com.rm.erp.exception.JshException;
 import com.rm.erp.service.CommonQueryManager;
-import com.rm.erp.service.functions.FunctionsService;
 import com.rm.erp.service.log.LogService;
 import com.rm.erp.service.user.UserService;
 import com.rm.erp.utils.StringUtil;
@@ -38,9 +37,6 @@ public class UserBusinessService {
     private LogService logService;
     @Resource
     private UserService userService;
-
-    @Resource
-    private FunctionsService functionsService;
 
     @Resource
     private CommonQueryManager configResourceManager;

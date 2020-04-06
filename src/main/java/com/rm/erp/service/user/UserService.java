@@ -5,7 +5,6 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.rm.erp.constants.BusinessConstants;
 import com.rm.erp.constants.ExceptionConstants;
-import com.rm.erp.datasource.entities.OrgaUserRel;
 import com.rm.erp.datasource.entities.User;
 import com.rm.erp.datasource.entities.UserEx;
 import com.rm.erp.datasource.entities.UserExample;
@@ -15,8 +14,6 @@ import com.rm.erp.datasource.vo.TreeNodeEx;
 import com.rm.erp.exception.BusinessRunTimeException;
 import com.rm.erp.exception.JshException;
 import com.rm.erp.service.log.LogService;
-import com.rm.erp.service.orgaUserRel.OrgaUserRelService;
-import com.rm.erp.service.tenant.TenantService;
 import com.rm.erp.service.userBusiness.UserBusinessService;
 import com.rm.erp.utils.ExceptionCodeConstants;
 import com.rm.erp.utils.StringUtil;
@@ -46,13 +43,12 @@ public class UserService {
     @Resource
     private UserMapperEx userMapperEx;
     @Resource
-    private OrgaUserRelService orgaUserRelService;
-    @Resource
     private LogService logService;
     @Resource
     private UserService userService;
-    @Resource
-    private TenantService tenantService;
+	/*
+	 * @Resource private TenantService tenantService;
+	 */
     @Resource
     private UserBusinessService userBusinessService;
 
@@ -350,22 +346,21 @@ public class UserService {
                 return;
             }
             //新增用户和机构关联关系
-            OrgaUserRel oul=new OrgaUserRel();
-            //机构id
-            oul.setOrgaId(ue.getOrgaId());
-            //用户id，根据用户名查询id
-            Long userId = getIdByLoginName(ue.getLoginame());
-            oul.setUserId(userId);
-            //用户在机构中的排序
-            oul.setUserBlngOrgaDsplSeq(ue.getUserBlngOrgaDsplSeq());
+			/*
+			 * OrgaUserRel oul=new OrgaUserRel(); //机构id oul.setOrgaId(ue.getOrgaId());
+			 * //用户id，根据用户名查询id Long userId = getIdByLoginName(ue.getLoginame());
+			 * oul.setUserId(userId); //用户在机构中的排序
+			 * oul.setUserBlngOrgaDsplSeq(ue.getUserBlngOrgaDsplSeq());
+			 */
 
-            oul=orgaUserRelService.addOrgaUserRel(oul);
-            if(oul==null){
-                logger.error("异常码[{}],异常提示[{}],参数,[{}]",
-                        ExceptionConstants.ORGA_USER_REL_ADD_FAILED_CODE,ExceptionConstants.ORGA_USER_REL_ADD_FAILED_MSG);
-                throw new BusinessRunTimeException(ExceptionConstants.ORGA_USER_REL_ADD_FAILED_CODE,
-                        ExceptionConstants.ORGA_USER_REL_ADD_FAILED_MSG);
-            }
+			/* oul=orgaUserRelService.addOrgaUserRel(oul); */
+			/*
+			 * if(oul==null){ logger.error("异常码[{}],异常提示[{}],参数,[{}]",
+			 * ExceptionConstants.ORGA_USER_REL_ADD_FAILED_CODE,ExceptionConstants.
+			 * ORGA_USER_REL_ADD_FAILED_MSG); throw new
+			 * BusinessRunTimeException(ExceptionConstants.ORGA_USER_REL_ADD_FAILED_CODE,
+			 * ExceptionConstants.ORGA_USER_REL_ADD_FAILED_MSG); }
+			 */
         }
     }
     @Transactional(value = "transactionManager", rollbackFor = Exception.class)
@@ -436,11 +431,11 @@ public class UserService {
             ubObj.put("value", ubArr.toString());
             userBusinessService.insertUserBusiness(ubObj.toString(), ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest());
             //创建租户信息
-            JSONObject tenantObj = new JSONObject();
-            tenantObj.put("tenantId", ue.getId());
-            tenantObj.put("loginName",ue.getLoginame());
-            String param = tenantObj.toJSONString();
-            tenantService.insertTenant(param, request);
+			/*
+			 * JSONObject tenantObj = new JSONObject(); tenantObj.put("tenantId",
+			 * ue.getId()); tenantObj.put("loginName",ue.getLoginame()); String param =
+			 * tenantObj.toJSONString(); tenantService.insertTenant(param, request);
+			 */
             logger.info("===============创建租户信息完成===============");
             if (result > 0) {
                 return ue;
@@ -484,28 +479,24 @@ public class UserService {
                 return;
             }
             //更新用户和机构关联关系
-            OrgaUserRel oul = new OrgaUserRel();
-            //机构和用户关联关系id
-            oul.setId(ue.getOrgaUserRelId());
-            //机构id
-            oul.setOrgaId(ue.getOrgaId());
-            //用户id
-            oul.setUserId(ue.getId());
-            //用户在机构中的排序
-            oul.setUserBlngOrgaDsplSeq(ue.getUserBlngOrgaDsplSeq());
-            if (oul.getId() != null) {
-                //已存在机构和用户的关联关系，更新
-                oul = orgaUserRelService.updateOrgaUserRel(oul);
-            } else {
-                //不存在机构和用户的关联关系，新建
-                oul = orgaUserRelService.addOrgaUserRel(oul);
-            }
-            if (oul == null) {
-                logger.error("异常码[{}],异常提示[{}],参数,[{}]",
-                        ExceptionConstants.ORGA_USER_REL_EDIT_FAILED_CODE, ExceptionConstants.ORGA_USER_REL_EDIT_FAILED_MSG);
-                throw new BusinessRunTimeException(ExceptionConstants.ORGA_USER_REL_EDIT_FAILED_CODE,
-                        ExceptionConstants.ORGA_USER_REL_EDIT_FAILED_MSG);
-            }
+			/*
+			 * OrgaUserRel oul = new OrgaUserRel(); //机构和用户关联关系id
+			 * oul.setId(ue.getOrgaUserRelId()); //机构id oul.setOrgaId(ue.getOrgaId());
+			 * //用户id oul.setUserId(ue.getId()); //用户在机构中的排序
+			 * oul.setUserBlngOrgaDsplSeq(ue.getUserBlngOrgaDsplSeq());
+			 */
+			/*
+			 * if (oul.getId() != null) { //已存在机构和用户的关联关系，更新 oul =
+			 * orgaUserRelService.updateOrgaUserRel(oul); } else { //不存在机构和用户的关联关系，新建 oul =
+			 * orgaUserRelService.addOrgaUserRel(oul); }
+			 */
+			/*
+			 * if (oul == null) { logger.error("异常码[{}],异常提示[{}],参数,[{}]",
+			 * ExceptionConstants.ORGA_USER_REL_EDIT_FAILED_CODE,
+			 * ExceptionConstants.ORGA_USER_REL_EDIT_FAILED_MSG); throw new
+			 * BusinessRunTimeException(ExceptionConstants.ORGA_USER_REL_EDIT_FAILED_CODE,
+			 * ExceptionConstants.ORGA_USER_REL_EDIT_FAILED_MSG); }
+			 */
         }
     }
     @Transactional(value = "transactionManager", rollbackFor = Exception.class)

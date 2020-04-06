@@ -9,7 +9,6 @@ import com.rm.erp.datasource.entities.User;
 import com.rm.erp.datasource.mappers.MsgMapper;
 import com.rm.erp.datasource.mappers.MsgMapperEx;
 import com.rm.erp.exception.BusinessRunTimeException;
-import com.rm.erp.service.depotHead.DepotHeadService;
 import com.rm.erp.service.log.LogService;
 import com.rm.erp.service.user.UserService;
 import com.rm.erp.utils.StringUtil;
@@ -33,9 +32,6 @@ public class MsgService {
 
     @Resource
     private MsgMapperEx msgMapperEx;
-
-    @Resource
-    private DepotHeadService depotHeadService;
 
     @Resource
     private UserService userService;
