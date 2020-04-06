@@ -337,27 +337,7 @@
         forcePlaceholderSize: true, zIndex: 999999
     }).find('.box-header, .nav-tabs').css('cursor', 'move');
 
-    $(function () {
-        $.ajax({
-            type: "get",
-            url: "/depotHead/getBuyAndSaleStatistics",
-            dataType: "json",
-            success: function (res) {
-                if (res && res.code === 200) {
-                    if (res.data) {
-                        $("#todaySale").text(res.data.todaySale);
-                        $("#thisMonthSale").text(res.data.thisMonthSale);
-                        $("#thisMonthBuy").text(res.data.thisMonthBuy);
-                    }
-                }
-            },
-            error: function (res) {
-
-            }
-        });
-    });
-
-    $(function () {
+   /*  $(function () {
         $.ajax({
             type: "get",
             url: "/user/list",
@@ -382,7 +362,7 @@
             }
         });
     });
-
+ */
     function getChartObj(titleName, categories, seriesData) {
         var chartObj = {
             chart: {
@@ -407,20 +387,4 @@
         return chartObj;
     }
 
-    $(function () {
-        $.ajax({
-            type: "get",
-            url: "/depotItem/buyOrSalePrice",
-            dataType: "json",
-            success: function (res) {
-                if (res && res.code === 200) {
-                    var data = res.data;
-                    Highcharts.chart('buyIn', getChartObj("桃曲坡水库24小时数据", res.data.monthList, res.data.buyPriceList));
-                }
-            },
-            error: function (res) {
-
-            }
-        });
-    });
 </script>

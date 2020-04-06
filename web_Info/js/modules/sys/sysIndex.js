@@ -1,4 +1,6 @@
 $(function () {
+	$("#sysUserName").text(sessionStorage.loginName);
+	
     $('#sidebarLoginOut, #loginOut').off("click").on("click", function () {
         $.messager.confirm("提示","确认要退出系统吗？",function(r){
             if(r) {
@@ -28,7 +30,7 @@ $(function () {
         }, 10 * 1000);
     }
 
-    //更新消息条数
+    /*//更新消息条数
     function getMsgCountByStatus() {
         $.ajax({
             type: "get",
@@ -47,6 +49,6 @@ $(function () {
     getMsgCountByStatus();
     setInterval(function() {
         getMsgCountByStatus()
-    }, 1000*60);
+    }, 1000*60);*/
 
 });

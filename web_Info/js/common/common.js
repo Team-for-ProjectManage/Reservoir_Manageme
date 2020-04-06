@@ -120,9 +120,9 @@
 		}
 	}
 
-    /**
+   /* *//**
 	 * 获取公司信息
-     */
+     *//*
 	function getSystemConfig() {
 		var info = null;
         $.ajax({
@@ -151,10 +151,10 @@
             }
         });
         return info;
-    }
+    }*/
 
 	//初始化系统基础信息
-	function getSystemDepot(){
+	/*function getSystemDepot(){
 		var depotList = null;
 		$.ajax({
 			type:"get",
@@ -171,7 +171,7 @@
 			}
 		});
 		return depotList;
-	}
+	}*/
 
 	/**
 	 * js生成唯一ID值 32位值随机值
