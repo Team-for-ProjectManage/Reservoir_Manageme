@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="webkit" name="renderer"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta content="no-cache" http-equiv="Pragma"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta content="width=device-width, initial-scale=1, user-scalable=1" name="viewport"/>
+    <title>工程信息</title>
+    <script src="/js/jquery/jquery-1.12.4.min.js"></script>
+    <script src="/js/handlebars.js"></script>
+    <link rel="stylesheet" href="/css/fonts/font-icons.min.css">
+    <link rel="stylesheet" type="text/css" href="../../js/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../js/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="../../js/easyui/demo/demo.css">
+    <script type="text/javascript" src="../../js/easyui/jquery.easyui.min.js"></script>
+    <link rel="stylesheet" href="/js/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/js/easyui/themes/default/easyui.css" type="text/css"/>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12" id="titleInfo">
+            <h4 style="float: left;margin-right: 70%" class="lead">基本信息</h4>
+            <button type="button" class="btn btn-info">编辑</button>
+            <button type="button" class="btn btn-info">导出</button>
+            <div style="clear: both">
+                <form>
+                    <table class="table">
+                        <tr>
+                            <td><label>工程代码:</label></td>
+                            <td>
+                                <input type="text" class="form-control" id="proCode">
+                            </td>
+                            <td><label>水库名称:</label></td>
+                            <td>
+                                <input type="text" class="form-control" id="waterName">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>所在地区:</label></td>
+                            <td>
+                                <input type="text" class="form-control" id="area">
+                            </td>
+                            <td><label>所在河流:</label></td>
+                            <td>
+                                <input type="text" class="form-control" id="rivers">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>经度:</label></td>
+                            <td>
+                                <input type="text" class="form-control">
+                            </td>
+                            <td><label>纬度:</label></td>
+                            <td>
+                                <input type="text" class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>水库类型:</label></td>
+                            <td>
+                                <input type="text" class="form-control">
+                            </td>
+                            <td><label>工程等级:</label></td>
+                            <td>
+                                <input type="text" class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>工程建设情况:</label></td>
+                            <td>
+                                <input type="text" class="form-control">
+                            </td>
+                            <td><label>是否竣工验收:</label></td>
+                            <td>
+                                <div class="radio">
+                                    <label><input type="radio" name="optradio">是</label>
+                                    <label><input type="radio" name="optradio">否</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>完工时间:</label></td>
+                            <td>
+                                <input class="easyui-datetimebox" style="width:100%;">
+                            </td>
+                            <td><label>竣工验收时间:</label></td>
+                            <td>
+                                <input class="easyui-datetimebox" style="width:100%;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>工程体系:</label></td>
+                            <td>
+                                <input type="text" class="form-control">
+                            </td>
+                            <td><label>水库类别:</label></td>
+                            <td>
+                                <input type="text" class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>所在村:</label></td>
+                            <td>
+                                <input type="text" class="form-control">
+                            </td>
+                            <td><label>溃决影响的乡镇:</label></td>
+                            <td>
+                                <input type="text" class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>是否有备用电源:</label></td>
+                            <td>
+                                <div class="radio">
+                                    <label><input type="radio" name="optradio">是</label>
+                                    <label><input type="radio" name="optradio">否</label>
+                                </div>
+                            </td>
+                            <td><label>是否有闸门</label></td>
+                            <td>
+                                <div class="radio">
+                                    <label><input type="radio" name="optradio">是</label>
+                                    <label><input type="radio" name="optradio">否</label>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
+<style>
+    #titleInfo > li {
+        font-size: 14px;
+        float: left;
+    }
+    .table>tbody>tr>td {
+        padding: 8px;
+        border-top: 0px;
+    }
+
+</style>
