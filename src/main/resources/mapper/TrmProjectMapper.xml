@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rm.erp.datasource.mappers.TrmProjectMapper" >
+  <resultMap id="BaseResultMap" type="com.rm.erp.datasource.entities.TrmProject" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="project_grade" property="projectGrade" jdbcType="VARCHAR" />
+    <result column="project_contruction" property="projectContruction" jdbcType="VARCHAR" />
+    <result column="complete_time" property="completeTime" jdbcType="TIMESTAMP" />
+    <result column="high_system" property="highSystem" jdbcType="VARCHAR" />
+    <result column="check_time" property="checkTime" jdbcType="TIMESTAMP" />
+    <result column="is_complete" property="isComplete" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="ceate_time" property="ceateTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="update_user" property="updateUser" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, code, project_grade, project_contruction, complete_time, high_system, check_time, 
+    is_complete, remark, ceate_time, create_user, update_time, update_user
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_rm_project
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_rm_project
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rm.erp.datasource.entities.TrmProject" >
+    insert into t_rm_project (id, name, code, 
+      project_grade, project_contruction, complete_time, 
+      high_system, check_time, is_complete, 
+      remark, ceate_time, create_user, 
+      update_time, update_user)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, 
+      #{projectGrade,jdbcType=VARCHAR}, #{projectContruction,jdbcType=VARCHAR}, #{completeTime,jdbcType=TIMESTAMP}, 
+      #{highSystem,jdbcType=VARCHAR}, #{checkTime,jdbcType=TIMESTAMP}, #{isComplete,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{ceateTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rm.erp.datasource.entities.TrmProject" >
+    insert into t_rm_project
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="projectGrade != null" >
+        project_grade,
+      </if>
+      <if test="projectContruction != null" >
+        project_contruction,
+      </if>
+      <if test="completeTime != null" >
+        complete_time,
+      </if>
+      <if test="highSystem != null" >
+        high_system,
+      </if>
+      <if test="checkTime != null" >
+        check_time,
+      </if>
+      <if test="isComplete != null" >
+        is_complete,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="ceateTime != null" >
+        ceate_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="updateUser != null" >
+        update_user,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="projectGrade != null" >
+        #{projectGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="projectContruction != null" >
+        #{projectContruction,jdbcType=VARCHAR},
+      </if>
+      <if test="completeTime != null" >
+        #{completeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="highSystem != null" >
+        #{highSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null" >
+        #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isComplete != null" >
+        #{isComplete,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="ceateTime != null" >
+        #{ceateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null" >
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rm.erp.datasource.entities.TrmProject" >
+    update t_rm_project
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="projectGrade != null" >
+        project_grade = #{projectGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="projectContruction != null" >
+        project_contruction = #{projectContruction,jdbcType=VARCHAR},
+      </if>
+      <if test="completeTime != null" >
+        complete_time = #{completeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="highSystem != null" >
+        high_system = #{highSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null" >
+        check_time = #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isComplete != null" >
+        is_complete = #{isComplete,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="ceateTime != null" >
+        ceate_time = #{ceateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null" >
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rm.erp.datasource.entities.TrmProject" >
+    update t_rm_project
+    set name = #{name,jdbcType=VARCHAR},
+      code = #{code,jdbcType=VARCHAR},
+      project_grade = #{projectGrade,jdbcType=VARCHAR},
+      project_contruction = #{projectContruction,jdbcType=VARCHAR},
+      complete_time = #{completeTime,jdbcType=TIMESTAMP},
+      high_system = #{highSystem,jdbcType=VARCHAR},
+      check_time = #{checkTime,jdbcType=TIMESTAMP},
+      is_complete = #{isComplete,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      ceate_time = #{ceateTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

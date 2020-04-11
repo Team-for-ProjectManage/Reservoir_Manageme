@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rm.erp.datasource.mappers.TrmProjectDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.rm.erp.datasource.entities.TrmProjectDetail" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="project_id" property="projectId" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="mold" property="mold" jdbcType="VARCHAR" />
+    <result column="open_time" property="openTime" jdbcType="TIMESTAMP" />
+    <result column="close_time" property="closeTime" jdbcType="TIMESTAMP" />
+    <result column="equipment_state" property="equipmentState" jdbcType="VARCHAR" />
+    <result column="isEmps" property="isemps" jdbcType="VARCHAR" />
+    <result column="isGate" property="isgate" jdbcType="VARCHAR" />
+    <result column="ceate_time" property="ceateTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="update_user" property="updateUser" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, project_id, name, type, mold, open_time, close_time, equipment_state, isEmps, 
+    isGate, ceate_time, create_user, update_time, update_user, state, remark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_rm_project_detail
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_rm_project_detail
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rm.erp.datasource.entities.TrmProjectDetail" >
+    insert into t_rm_project_detail (id, project_id, name, 
+      type, mold, open_time, 
+      close_time, equipment_state, isEmps, 
+      isGate, ceate_time, create_user, 
+      update_time, update_user, state, 
+      remark)
+    values (#{id,jdbcType=VARCHAR}, #{projectId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{mold,jdbcType=VARCHAR}, #{openTime,jdbcType=TIMESTAMP}, 
+      #{closeTime,jdbcType=TIMESTAMP}, #{equipmentState,jdbcType=VARCHAR}, #{isemps,jdbcType=VARCHAR}, 
+      #{isgate,jdbcType=VARCHAR}, #{ceateTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rm.erp.datasource.entities.TrmProjectDetail" >
+    insert into t_rm_project_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="mold != null" >
+        mold,
+      </if>
+      <if test="openTime != null" >
+        open_time,
+      </if>
+      <if test="closeTime != null" >
+        close_time,
+      </if>
+      <if test="equipmentState != null" >
+        equipment_state,
+      </if>
+      <if test="isemps != null" >
+        isEmps,
+      </if>
+      <if test="isgate != null" >
+        isGate,
+      </if>
+      <if test="ceateTime != null" >
+        ceate_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="updateUser != null" >
+        update_user,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="mold != null" >
+        #{mold,jdbcType=VARCHAR},
+      </if>
+      <if test="openTime != null" >
+        #{openTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="closeTime != null" >
+        #{closeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="equipmentState != null" >
+        #{equipmentState,jdbcType=VARCHAR},
+      </if>
+      <if test="isemps != null" >
+        #{isemps,jdbcType=VARCHAR},
+      </if>
+      <if test="isgate != null" >
+        #{isgate,jdbcType=VARCHAR},
+      </if>
+      <if test="ceateTime != null" >
+        #{ceateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null" >
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rm.erp.datasource.entities.TrmProjectDetail" >
+    update t_rm_project_detail
+    <set >
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="mold != null" >
+        mold = #{mold,jdbcType=VARCHAR},
+      </if>
+      <if test="openTime != null" >
+        open_time = #{openTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="closeTime != null" >
+        close_time = #{closeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="equipmentState != null" >
+        equipment_state = #{equipmentState,jdbcType=VARCHAR},
+      </if>
+      <if test="isemps != null" >
+        isEmps = #{isemps,jdbcType=VARCHAR},
+      </if>
+      <if test="isgate != null" >
+        isGate = #{isgate,jdbcType=VARCHAR},
+      </if>
+      <if test="ceateTime != null" >
+        ceate_time = #{ceateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null" >
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rm.erp.datasource.entities.TrmProjectDetail" >
+    update t_rm_project_detail
+    set project_id = #{projectId,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      mold = #{mold,jdbcType=VARCHAR},
+      open_time = #{openTime,jdbcType=TIMESTAMP},
+      close_time = #{closeTime,jdbcType=TIMESTAMP},
+      equipment_state = #{equipmentState,jdbcType=VARCHAR},
+      isEmps = #{isemps,jdbcType=VARCHAR},
+      isGate = #{isgate,jdbcType=VARCHAR},
+      ceate_time = #{ceateTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      state = #{state,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

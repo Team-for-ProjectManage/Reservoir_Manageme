@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="webkit" name="renderer"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta content="no-cache" http-equiv="Pragma"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta content="width=device-width, initial-scale=1, user-scalable=1" name="viewport"/>
+    <title>水动态监测</title>
+    <script src="/js/jquery/jquery-1.12.4.min.js"></script>
+    <script src="/js/handlebars.js"></script>
+    <link rel="stylesheet" href="/css/fonts/font-icons.min.css">
+    <link rel="stylesheet" type="text/css" href="../../js/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../js/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="../../js/easyui/demo/demo.css">
+    <script type="text/javascript" src="../../js/easyui/jquery.easyui.min.js"></script>
+    <link rel="stylesheet" href="/js/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/js/easyui/themes/default/easyui.css" type="text/css"/>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <span id="info_title">
+                <p><h4 style="color: #1dae8ae0;margin-left: 30px">监测指标</h4></p>
+                <p style="margin-top: -40px;margin-right: 10px"><button type="button" class="btn btn-info">导出</button></p>
+            </span>
+            <div style="height: 100px;">
+                <div class="col-xs-2">
+                    <ul class="nav nav-tab vertical-tab" role="tablist" id="vtab">
+                        <li role="presentation" class="active">
+                            <a href="#tab1" aria-controls="home" role="tab"
+                               data-toggle="tab">实时水位监测</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#tab2" aria-controls="inbox" role="tab"
+                               data-toggle="tab">实时雨量监测</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#tab3" aria-controls="outbox" role="tab"
+                               data-toggle="tab">雨量统计分析</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#tab4" aria-controls="inbox1" role="tab"
+                               data-toggle="tab">水位统计分析</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#tab5" aria-controls="outbox1" role="tab"
+                               data-toggle="tab">测站管理</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-content vertical-tab-content col-xs-10" style="margin-top: 3px">
+                    <div role="tabpanel" class="tab-pane active" id="tab1">
+                        <table class="table table-bordered table-hover" style="border:#ddd 1px solid">
+                            <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>aa</th>
+                                <th>bb</th>
+                                <th>cc</th>
+                                <th>dd</th>
+                                <th>ee</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Doe</td>
+                                <td>john@example.com</td>
+                                <td>John</td>
+                                <td>Doe</td>
+                                <td>john@example.com</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="tab2">
+                        <table class="table table-bordered table-hover" style="border:#ddd 1px solid">
+                            <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>aa</th>
+                                <th>bb</th>
+                                <th>cc</th>
+                                <th>dd</th>
+                                <th>ee</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Doe</td>
+                                <td>john@example.com</td>
+                                <td>John</td>
+                                <td>Doe</td>
+                                <td>john@example.com</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="tab3">
+                        <table class="table table-bordered table-hover" style="border:#ddd 1px solid">
+                            <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>aa</th>
+                                <th>bb</th>
+                                <th>cc</th>
+                                <th>dd</th>
+                                <th>ee</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Doe</td>
+                                <td>john@example.com</td>
+                                <td>John</td>
+                                <td>Doe</td>
+                                <td>john@example.com</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="tab4">这是.视音频..</div>
+                    <div role="tabpanel" class="tab-pane" id="tab5">这是..图像.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<style>
+    #vtab > li {
+        font-size: 16px;
+        font-weight: bold;
+        font-family: "Arial Black";
+    }
+
+    #vtab > li > a {
+        color: #1a2226;
+    }
+
+    #info_title > p {
+        float: right
+    }
+</style>
