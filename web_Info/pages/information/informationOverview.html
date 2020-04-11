@@ -21,6 +21,26 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../../js/jquery/jquery-ui-sortable-1.12.1.min.js"></script>
+    <script src="../../js/highcharts/highcharts.js"></script>
+	<script src="../../js/highcharts/exporting.js"></script>
+	<script src="../../js/highcharts/highcharts-zh_CN.js"></script>
+    <script src="../../pages/information/informationOverview.js"></script>
+    <style>
+	    #info_1 > div {
+	        float: left;
+	        text-align: center;
+	        width: 270px;
+	        height: 127px;
+	        margin-left: 10px;
+	        margin-bottom: 10px;
+	    }
+	
+	    #info_2 > div {
+	        float: left;
+	        text-align: center;
+	    }
+	</style>
 </head>
 <body>
 <div class="container-fluid">
@@ -29,19 +49,19 @@
             <div id="info_1">
                 <div class="col-sm-4" style="background-color: #bcf2e3">
                     <h4>到岗人员</h4>
-                    <p>111人</p>
+                    <p id="totalPersion"></p>
                 </div>
                 <div class="col-sm-4" style="background-color: #6b9cde">
                     <h4>运行状态</h4>
-                    <p>水位：788.5（m）</p>
-                    <p>库容：5720（万方）</p>
-                    <p>11-18 14时</p>
+                    <p>水位：<span id="waterLevel"></span>（m）</p>
+                    <p>库容：<span id="storageCapacity"></span>（万方）</p>
+                    <p><span id="dataTime"></p>
                 </div>
                 <div class="col-sm-4" style="background-color: #ffab3f">
                     <h4>今日天气</h4>
-                    <p>1~10°C</p>
-                    <p>晴</p>
-                    <p>周一 11月18日（实时：10度）</p>
+                    <p><span id="realWather"></span>°C</p>
+                    <p><span id="temperature"></p>
+                    <p><span id="week"> <span id="dataTime">（实时：<span id="wather"></span>°C）</p>
                 </div>
             </div>
             <div class="box box-solid">
@@ -300,91 +320,3 @@
 </div>
 </body>
 </html>
-<style>
-    #info_1 > div {
-        float: left;
-        text-align: center;
-        width: 270px;
-        height: 127px;
-        margin-left: 10px;
-        margin-bottom: 10px;
-    }
-
-    #info_2 > div {
-        float: left;
-        text-align: center;
-    }
-</style>
-<script>
-    $(function () {
-        $('#myTab li:eq(1) a').tab('show');
-    });
-</script>
-<script src="../../js/jquery/jquery-ui-sortable-1.12.1.min.js"></script>
-<script src="../../js/highcharts/highcharts.js"></script>
-<script src="../../js/highcharts/exporting.js"></script>
-<script src="../../js/highcharts/highcharts-zh_CN.js"></script>
-<script>
-    $(window).resize(function () {
-        var footerHeight = $('.main-footer').outerHeight() || 0;
-        var windowHeight = $(window).height();
-        $('.content').css('min-height', windowHeight - footerHeight)
-    }).resize();
-    $('.ui-sortable').sortable({
-        placeholder: 'sort-highlight',
-        connectWith: '.ui-sortable',
-        handle: '.box-header, .nav-tabs',
-        forcePlaceholderSize: true, zIndex: 999999
-    }).find('.box-header, .nav-tabs').css('cursor', 'move');
-
-   /*  $(function () {
-        $.ajax({
-            type: "get",
-            url: "/user/list",
-            dataType: "json",
-            data: ({
-                search: JSON.stringify({
-                    userName: "",
-                    loginName: ""
-                }),
-                currentPage: 1,
-                pageSize: 10
-            }),
-            success: function (res) {
-                if (res && res.code === 200) {
-                    if (res.data && res.data.page) {
-                        $("#thisUserSum").text(res.data.page.total);
-                    }
-                }
-            },
-            error: function (res) {
-
-            }
-        });
-    });
- */
-    function getChartObj(titleName, categories, seriesData) {
-        var chartObj = {
-            chart: {
-                type: 'spline'
-            },
-            title: {
-                text: titleName
-            },
-            xAxis: {
-                categories: categories
-            },
-            yAxis: {
-                title: {
-                    text: '金额（元）'
-                }
-            },
-            series: [{
-                name: titleName,
-                data: seriesData
-            }]
-        }
-        return chartObj;
-    }
-
-</script>
