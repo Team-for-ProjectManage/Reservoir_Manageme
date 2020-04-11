@@ -1,9 +1,3 @@
-/*!
- * Copyright (c) 2013-Now 华夏erp All rights reserved.
- *
- * @author jishenghua
- * @version 2019-09-14
- */
 $("#username, #password").on("focus blur", function () {
     var a = this;
     setTimeout(function () {
@@ -87,15 +81,15 @@ function loginFun() {
                     if (loginInfoTip.indexOf("user is not exist") != -1) {
                         $("#username").val("").focus();
                         $("#password").val("");
-                        alert("用户名不存在");
+                        $.messager.alert('提示','用户名不存在','error');
                         return;
                     }
                     else if (loginInfoTip.indexOf("user password error") != -1) {
-                        alert("用户密码错误");
+                        $.messager.alert('提示','用户密码错误','error');
                         return;
                     }
                     else if (loginInfoTip.indexOf("access service error") != -1) {
-                        alert("后台访问错误");
+                        $.messager.alert('提示','系统服务错误','error');
                         return;
                     }
                     //跳转到用户管理界面
