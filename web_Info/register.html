@@ -20,6 +20,9 @@
     <script type="text/javascript" src="js/common/common.js"></script>
     <script type="text/javascript" src="js/md5/md5.js"></script>
     <script type="text/javascript" src="js/gVerify.js"></script>
+    <script src="js/easyui/jquery.easyui.min.js"></script>
+    <link rel="stylesheet" href="js/easyui/themes/default/easyui.css" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="js/easyui/themes/icon.css">
 </head>
 <body class="hold-transition register-page">
 <div class="wrapper">
@@ -102,16 +105,16 @@
             if(res){
                 var userName = $("#username");
                 if(!userName.val()) {
-                    alert("登录账户不能为空!");
+                    $.messager.alert('提示','登录账户不能为空','error');
                 } else if(!isPhoneAvailable(userName)) {
-                    alert("请输入正确的手机号码!");
+                    $.messager.alert('提示','请输入正确的手机号码','error');
                 } else if(!$("#password").val()) {
-                    alert("登录密码不能为空!");
+                    $.messager.alert('提示','登录密码不能为空','error');
                 } else if(!$("#confirmPassword").val()) {
                     alert("确认密码不能为空!");
                 } else if($("#password").val()!=$("#confirmPassword").val()) {
                     $("#confirmPassword").val("");
-                    alert("确认密码不一致!");
+                    $.messager.alert('提示','确认密码不一致','error');
                 } else {
                     //执行注册
                     $.ajax({
@@ -124,24 +127,24 @@
                         }),
                         success: function (res) {
                             if (res && res.code === 200) {
-                                alert("注册成功，请进行登录！");
+                                $.messager.alert('提示','注册成功，请进行登录！','info');
                                 location.href = "login.html";
                             } else {
-                                alert(res.msg);
+                                $.messager.alert('提示',res.msg,'error');
                                 verifyCode.refresh(); //刷新
                             }
                         },
                         //此处添加错误处理
                         error: function () {
-                            alert("后台访问错误，请联系管理员！");
+                            $.messager.alert('提示',"后台访问错误，请联系管理员！",'error');
                         }
                     });
                 }
             } else{
-                alert("验证码错误!");
+                $.messager.alert('提示',"验证码错误!",'error');
             }
         } else {
-            alert("验证码为空!");
+            $.messager.alert('提示',"验证码为空!",'error');
         }
     });
 </script>
