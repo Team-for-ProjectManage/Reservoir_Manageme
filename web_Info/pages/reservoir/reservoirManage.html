@@ -26,32 +26,58 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
-            <span id="info_title">
-                <p><h4 style="color: #1dae8ae0;margin-left: 30px">监测指标</h4></p>
-                <p style="margin-top: -40px;margin-right: 10px"><button type="button" class="btn btn-info">导出</button></p>
-            </span>
-            <div style="height: 100px;">
+            <ul style="list-style: none">
+                <li style="float: left;margin-left: -15px"><h4 style="color: #1dae8ae0;">水库管理</h4></li>
+                <li style="float: left;margin-left: 70%"><input type="text" class="form-control" size="16px"></li>
+                <li style="float: left;margin-left: 10px">
+                    <button type="button" class="btn btn-info">搜索</button>
+                </li>
+                <li style="float: left;margin-left: 10px">
+                    <button type="button" class="btn btn-info">添加</button>
+                </li>
+            </ul>
+            <div style="height: 100px;clear: both">
                 <div class="col-xs-2">
                     <ul class="nav nav-tab vertical-tab" role="tablist" id="vtab">
                         <li role="presentation" class="active">
                             <a href="#tab1" aria-controls="home" role="tab"
-                               data-toggle="tab">实时水位监测</a>
+                               data-toggle="tab">基本信息</a>
                         </li>
                         <li role="presentation">
                             <a href="#tab2" aria-controls="inbox" role="tab"
-                               data-toggle="tab">实时雨量监测</a>
+                               data-toggle="tab">工程特性</a>
                         </li>
                         <li role="presentation">
                             <a href="#tab3" aria-controls="outbox" role="tab"
-                               data-toggle="tab">雨量统计分析</a>
+                               data-toggle="tab">管理设施</a>
                         </li>
                         <li role="presentation">
                             <a href="#tab4" aria-controls="inbox1" role="tab"
-                               data-toggle="tab">水位统计分析</a>
+                               data-toggle="tab">确权划界</a>
                         </li>
                         <li role="presentation">
                             <a href="#tab5" aria-controls="outbox1" role="tab"
-                               data-toggle="tab">测站管理</a>
+                               data-toggle="tab">标示标牌</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#tab5" aria-controls="outbox1" role="tab"
+                               data-toggle="tab">项目管理</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#tab5" aria-controls="outbox1" role="tab"
+                               data-toggle="tab">自评分</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#tab5" aria-controls="outbox1" role="tab"
+                               data-toggle="tab">生态环境</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#tab5" aria-controls="outbox1" role="tab"
+                               data-toggle="tab">全景图管理</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#tab5" aria-controls="outbox1" role="tab"
+                               data-toggle="tab">工程建筑物</a>
                         </li>
                     </ul>
                 </div>
@@ -61,21 +87,37 @@
                             <thead>
                             <tr>
                                 <th>序号</th>
-                                <th>aa</th>
-                                <th>bb</th>
-                                <th>cc</th>
-                                <th>dd</th>
-                                <th>ee</th>
+                                <th>名称</th>
+                                <th>开启时间</th>
+                                <th>关闭时间</th>
+                                <th>设备状态</th>
+                                <th>操作</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>Doe</td>
-                                <td>john@example.com</td>
-                                <td>John</td>
-                                <td>Doe</td>
-                                <td>john@example.com</td>
+                                <td>岩桥1号排涝闸</td>
+                                <td>2018年09月08号 19时30分57秒</td>
+                                <td>2018年09月10号 19时30分57秒</td>
+                                <td>正常</td>
+                                <td>john@正常.com</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>岩桥1号排涝闸</td>
+                                <td>2018年09月08号 19时30分57秒</td>
+                                <td>2018年09月10号 19时30分57秒</td>
+                                <td>正常</td>
+                                <td>john@正常.com</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>岩桥1号排涝闸</td>
+                                <td>2018年09月08号 19时30分57秒</td>
+                                <td>2018年09月10号 19时30分57秒</td>
+                                <td>正常</td>
+                                <td>john@正常.com</td>
                             </tr>
                             </tbody>
                         </table>
@@ -146,9 +188,5 @@
 
     #vtab > li > a {
         color: #1a2226;
-    }
-
-    #info_title > p {
-        float: right
     }
 </style>

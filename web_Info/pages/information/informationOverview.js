@@ -3,19 +3,21 @@ var watherInfo;
 var echartsData;
 
 $(function(){
-
 	 $('#myTab li:eq(1) a').tab('show');
 	 searchInfoData();
-	 
 	 //初始化页面数据
 	 initData();
-	 
 	 //获得折线图数据
 	 getEchartsData("24");
-	 
 	 echartOption()
-	 
 });
+
+function getSelected() {
+	var houtOption =  $("#houtOption option:selected").val();
+	//获得折线图数据
+	getEchartsData(houtOption);
+	echartOption()
+}
 
 function initData(){
 	$("#totalPersion").text(informationData.tatalPersion);
@@ -114,17 +116,6 @@ function echartOption(){
    
    $('#buyIn').highcharts(json);
 }
-
-$("#houtOption").change(function(){
-	
-	 alert($("#sel option:selected").text())
-	
-	 var houtOption =  $("#houtOption option:selected").text();
-	 //获得折线图数据
-	 getEchartsData(houtOption);
-	 
-	 echartOption()
-})
 
 $(window).resize(function () {
     var footerHeight = $('.main-footer').outerHeight() || 0;
