@@ -30,11 +30,11 @@ public class WeatherHelper {
 			watherInfo = getWeather(country);
 		}
 		String[] weatherInfoLiStrings = watherInfo.split("#");
-		if (weatherInfoLiStrings.length > 13) {
+		if (weatherInfoLiStrings.length > 8) {
 			resultMap.put("cityInfo", weatherInfoLiStrings[0]);
 			resultMap.put("temperature", weatherInfoLiStrings[4].substring(7, weatherInfoLiStrings[4].length()));
-			resultMap.put("realWather", weatherInfoLiStrings[12]);
-			resultMap.put("wather", weatherInfoLiStrings[13]);
+			resultMap.put("realWather", weatherInfoLiStrings[7]);
+			resultMap.put("wather", weatherInfoLiStrings[8]);
 		} else {
 			resultMap.put("cityInfo", "");
 			resultMap.put("temperature", "");
