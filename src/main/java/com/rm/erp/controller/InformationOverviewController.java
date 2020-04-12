@@ -1,5 +1,7 @@
 package com.rm.erp.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rm.erp.common.CommonResult;
+import com.rm.erp.datasource.vo.InspectCheck;
 import com.rm.erp.service.information.InformationOverviewService;
 
 /**
@@ -41,6 +44,28 @@ public class InformationOverviewController {
 	@ResponseBody
 	public CommonResult getEchartsData(@RequestParam("hour") String hour) {
 		return informationOverviewService.getEchartsData(hour);
+	}
+
+	/**
+	 * 获得巡检记录
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/getPotalCheckData", method = RequestMethod.GET)
+	@ResponseBody
+	public List<InspectCheck> getPotalCheckData() {
+		return informationOverviewService.getPotalCheckData();
+	}
+
+	/**
+	 * 获得巡检任务
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/getPotalCheckResk", method = RequestMethod.GET)
+	@ResponseBody
+	public List<InspectCheck> getPotalCheckResk() {
+		return informationOverviewService.getPotalCheckResk();
 	}
 
 }

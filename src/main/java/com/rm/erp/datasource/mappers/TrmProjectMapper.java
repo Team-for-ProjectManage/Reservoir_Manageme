@@ -1,17 +1,22 @@
 package com.rm.erp.datasource.mappers;
 
+import java.util.List;
+
 import com.rm.erp.datasource.entities.TrmProject;
 
 public interface TrmProjectMapper {
-    int deleteByPrimaryKey(String id);
 
-    int insert(TrmProject record);
+	int deleteByPrimaryKey(String id);
 
-    int insertSelective(TrmProject record);
+	int insert(TrmProject record);
 
-    TrmProject selectByPrimaryKey(String id);
+	int insertSelective(TrmProject record);
 
-    int updateByPrimaryKeySelective(TrmProject record);
+	TrmProject selectByPrimaryKey(String id);
 
-    int updateByPrimaryKey(TrmProject record);
+	int updateByPrimaryKeySelective(TrmProject record);
+
+	int updateByPrimaryKey(TrmProject record);
+
+	List<TrmProject> selectAll();
 }

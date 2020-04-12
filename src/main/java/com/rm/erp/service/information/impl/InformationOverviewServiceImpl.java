@@ -1,6 +1,8 @@
 package com.rm.erp.service.information.impl;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Service;
 import com.rm.erp.common.CommonResult;
 import com.rm.erp.common.CommonResultEnum;
 import com.rm.erp.controller.InformationOverviewController;
+import com.rm.erp.datasource.vo.InspectCheck;
 import com.rm.erp.service.information.InformationOverviewService;
 import com.rm.erp.utils.Tools;
 import com.rm.erp.utils.WeatherHelper;
@@ -68,6 +71,40 @@ public class InformationOverviewServiceImpl implements InformationOverviewServic
 			logger.error("InformationOverviewServiceImpl >> getEchartsData is fail:" + e.getMessage());
 		}
 		return result;
+	}
+
+	@Override
+	public List<InspectCheck> getPotalCheckData() {
+		List<InspectCheck> reslutChecks = new ArrayList<InspectCheck>();
+		SimpleDateFormat sdfDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		for (int i = 0; i < 12; i++) {
+			InspectCheck inspectCheck = new InspectCheck();
+			inspectCheck.setId(String.valueOf(i + 1));
+			inspectCheck.setCheckName("现场巡检" + i);
+			inspectCheck.setCheckUser("老段" + i);
+			inspectCheck.setStartTime(sdfDateFormat.format(new Date()));
+			inspectCheck.setEndTime(sdfDateFormat.format(new Date()));
+			inspectCheck.setRemark("老段备注" + i);
+			reslutChecks.add(inspectCheck);
+		}
+		return reslutChecks;
+	}
+
+	@Override
+	public List<InspectCheck> getPotalCheckResk() {
+		List<InspectCheck> reslutChecks = new ArrayList<InspectCheck>();
+		SimpleDateFormat sdfDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		for (int i = 0; i < 6; i++) {
+			InspectCheck inspectCheck = new InspectCheck();
+			inspectCheck.setId(String.valueOf(i + 1));
+			inspectCheck.setCheckName("巡检任务" + i);
+			inspectCheck.setCheckUser("干大宝" + i);
+			inspectCheck.setStartTime(sdfDateFormat.format(new Date()));
+			inspectCheck.setEndTime(sdfDateFormat.format(new Date()));
+			inspectCheck.setRemark("干大宝备注" + i);
+			reslutChecks.add(inspectCheck);
+		}
+		return reslutChecks;
 	}
 
 }

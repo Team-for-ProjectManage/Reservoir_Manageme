@@ -27,6 +27,13 @@
     from t_rm_project
     where id = #{id,jdbcType=VARCHAR}
   </select>
+  
+  <select id="selectAll" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_rm_project
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from t_rm_project
     where id = #{id,jdbcType=VARCHAR}

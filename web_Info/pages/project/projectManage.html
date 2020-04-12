@@ -21,14 +21,16 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../../pages/project/projectManage.js"></script>
 </head>
 <body>
 <div class="container">
     <div class="row">
         <div class="col-sm-12" id="titleInfo">
             <h4 style="float: left;margin-right: 80%;margin-left: 8px" class="lead">基本信息</h4>
-            <button type="button" class="btn btn-info">编辑</button>
-            <button type="button" class="btn btn-info">导出</button>
+            <button id="save" type="button" class="btn btn-info">新增</button>
+            <button id="edit" type="button" class="btn btn-info">编辑</button>
+            <button id="export" type="button" class="btn btn-info">导出</button>
             <div style="clear: both">
                 <form>
                     <table class="table">
@@ -149,5 +151,4 @@
         padding: 8px;
         border-top: 0px;
     }
-
 </style>
