@@ -6,4 +6,6 @@ public interface InformationOverviewService {
 
 	CommonResult getInfoData();
 
+	CommonResult getEchartsData(String hour);
+
 }
