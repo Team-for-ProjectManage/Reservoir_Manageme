@@ -4,7 +4,7 @@ var echartsData;
 var houtOption;
 
 $(function(){
-	 $('#myTab li:eq(1) a').tab('show');
+	 //$('#myTab li:eq(1) a').tab('show');
 	 searchInfoData();
 	 //初始化页面数据
 	 initData();
@@ -240,17 +240,17 @@ function potalCheckRask(){
 };
 
 function checkRecordClick(){
-	$("#potalCheckRecordTable").bootstrapTable("refresh");//表格刷新数据
+	//$("#potalCheckRecordTable").bootstrapTable("refresh");//表格刷新数据
 	potalCheckRecord();
-	$("#query0").show();//隐藏div
-	$("#query1").hide();//显示div
+	$("#query1").removeClass("in active");//隐藏div
+	$("#query0").addClass("in active");//显示div
 };
 
 function checkRaskClick(){
-	$("#potalCheckRaskTable").bootstrapTable("refresh");//表格刷新数据
+	//$("#potalCheckRaskTable").bootstrapTable("refresh");//表格刷新数据
 	potalCheckRask();
-	$("#query0").hide();//隐藏div
-    $("#query1").show();//显示div
+	$("#query1").addClass("in active");//隐藏div
+    $("#query0").removeClass("in active");//显示div
 };
 
 $(window).resize(function () {
