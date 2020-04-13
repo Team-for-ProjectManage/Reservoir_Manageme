@@ -16,6 +16,7 @@ import com.rm.erp.common.CommonResultEnum;
 import com.rm.erp.controller.InformationOverviewController;
 import com.rm.erp.datasource.vo.InspectCheck;
 import com.rm.erp.service.information.InformationOverviewService;
+import com.rm.erp.utils.StringUtil;
 import com.rm.erp.utils.Tools;
 import com.rm.erp.utils.WeatherHelper;
 
@@ -95,6 +96,31 @@ public class InformationOverviewServiceImpl implements InformationOverviewServic
 		List<InspectCheck> reslutChecks = new ArrayList<InspectCheck>();
 		SimpleDateFormat sdfDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		for (int i = 0; i < 6; i++) {
+			InspectCheck inspectCheck = new InspectCheck();
+			inspectCheck.setId(String.valueOf(i + 1));
+			inspectCheck.setCheckName("巡检任务" + i);
+			inspectCheck.setCheckUser("干大宝" + i);
+			inspectCheck.setStartTime(sdfDateFormat.format(new Date()));
+			inspectCheck.setEndTime(sdfDateFormat.format(new Date()));
+			inspectCheck.setRemark("干大宝备注" + i);
+			reslutChecks.add(inspectCheck);
+		}
+		return reslutChecks;
+	}
+
+	@Override
+	public List<InspectCheck> getTaskTableData(String startTime, String endTime) {
+		int number = 0;
+		if (StringUtil.isEmpty(startTime) && StringUtil.isEmpty(endTime)) {
+			number = 30;
+		} else if (!StringUtil.isEmpty(startTime)) {
+			number = 5;
+		} else if (!StringUtil.isEmpty(endTime)) {
+			number = 10;
+		}
+		List<InspectCheck> reslutChecks = new ArrayList<InspectCheck>();
+		SimpleDateFormat sdfDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		for (int i = 0; i < number; i++) {
 			InspectCheck inspectCheck = new InspectCheck();
 			inspectCheck.setId(String.valueOf(i + 1));
 			inspectCheck.setCheckName("巡检任务" + i);

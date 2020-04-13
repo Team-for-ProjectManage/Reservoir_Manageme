@@ -68,4 +68,16 @@ public class InformationOverviewController {
 		return informationOverviewService.getPotalCheckResk();
 	}
 
+	/**
+	 * 获得巡检任务
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/getTaskTableData", method = RequestMethod.GET)
+	@ResponseBody
+	public List<InspectCheck> getTaskTableData(@RequestParam(value = "startTime", required = false) String startTime,
+			@RequestParam(value = "endTime", required = false) String endTime) {
+		return informationOverviewService.getTaskTableData(startTime, endTime);
+	}
+
 }

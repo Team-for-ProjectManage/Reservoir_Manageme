@@ -15,4 +15,6 @@ public interface InformationOverviewService {
 
 	List<InspectCheck> getPotalCheckResk();
 
+	List<InspectCheck> getTaskTableData(String startTime, String endTime);
+
 }
