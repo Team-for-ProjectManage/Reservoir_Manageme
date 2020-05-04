@@ -14,9 +14,6 @@ import com.rm.erp.common.CommonResult;
 import com.rm.erp.datasource.vo.InspectCheck;
 import com.rm.erp.service.information.InformationOverviewService;
 
-/**
- * @author 邵战国
- */
 @RestController
 @RequestMapping(value = "/information")
 public class InformationOverviewController {

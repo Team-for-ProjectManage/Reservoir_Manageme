@@ -19,9 +19,6 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
-/**
- * @author ji sheng hua 华夏ERP
- */
 @RestController
 @RequestMapping(value = "/role")
 public class RoleController {

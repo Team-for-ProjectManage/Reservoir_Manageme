@@ -27,9 +27,6 @@ import static com.rm.erp.utils.ResponseJsonUtil.returnJson;
 
 import java.util.*;
 
-/**
- * @author ji_sheng_hua 华夏erp
- */
 @RestController
 @RequestMapping(value = "/user")
 public class UserController {

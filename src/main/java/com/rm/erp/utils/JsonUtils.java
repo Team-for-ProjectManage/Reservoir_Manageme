@@ -2,11 +2,6 @@ package com.rm.erp.utils;
 
 import com.alibaba.fastjson.JSONObject;
 
-/**
- * Created by jishenghua 2018-5-11 09:48:08
- *
- * @author jishenghua
- */
 public class JsonUtils {
 
     public static JSONObject ok(){

@@ -22,9 +22,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author ji_sheng_hua 华夏ERP
- */
 @RestController
 @RequestMapping(value = "/userBusiness")
 public class UserBusinessController {

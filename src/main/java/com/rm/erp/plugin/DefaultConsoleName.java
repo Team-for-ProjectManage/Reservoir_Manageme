@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 /**
  * 默认的主程序输入名称接口实现
  *
- * @author jishenghua
  * @version 1.0
  */
 @Component

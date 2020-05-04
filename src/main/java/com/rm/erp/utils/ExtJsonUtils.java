@@ -11,9 +11,6 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * @author jishenghua qq752718920  2018-10-7 15:26:27
- */
 public class ExtJsonUtils {
     private static class NPFloatCodec extends FloatCodec {
         public void write(JSONSerializer serializer, Object object, Object fieldName, Type fieldType) throws IOException {

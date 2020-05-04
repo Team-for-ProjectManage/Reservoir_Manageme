@@ -2,9 +2,6 @@ package com.rm.erp.plugin;
 
 /**
  * 插件之间互相调用的类
- *
- * @author jishenghua
- * @version 1.0
  */
 public class CommonReturn {
 

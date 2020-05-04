@@ -11,11 +11,6 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Set;
 
-/**
- * 插件jar 包测试功能
- * @author jishenghua
- * @version 1.0
- */
 @RestController
 @RequestMapping("/plugin")
 public class PluginController {

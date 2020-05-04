@@ -9,9 +9,6 @@ import com.rm.erp.utils.AnnotationUtils;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author jishenghua 2018-10-7 15:25:09
- */
 @Service
 public class InterfaceContainer {
     private final Map<String, Integer> nameTypeMap;

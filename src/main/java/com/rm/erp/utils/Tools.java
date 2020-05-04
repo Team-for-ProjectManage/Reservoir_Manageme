@@ -23,11 +23,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.alibaba.druid.util.StringUtils;
 
-/**
- * 工具类
- *
- * @author jishenghua qq:7-5-2-7-1-8-9-2-0
- */
 public class Tools {
 	/**
 	 * 获得32位唯一序列号

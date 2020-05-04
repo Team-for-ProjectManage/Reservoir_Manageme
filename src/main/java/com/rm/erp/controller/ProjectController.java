@@ -12,9 +12,6 @@ import com.rm.erp.common.CommonResult;
 import com.rm.erp.datasource.entities.TrmProject;
 import com.rm.erp.service.project.ProjectService;
 
-/**
- * @author 邵战国
- */
 @RestController
 @RequestMapping(value = "/project")
 public class ProjectController {
